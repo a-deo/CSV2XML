@@ -1,0 +1,49 @@
+﻿<Window x:Class="CSV2XML.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSV2XML"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid ShowGridLines="True">
+
+        <!--Define columns and rows-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="42"></RowDefinition>
+            <RowDefinition Height="349*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Left side-->
+        <!--Button to load CSV file-->
+        <DockPanel Grid.Row="0" Grid.Column="0">
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="10,10,10,10" />
+        </DockPanel>
+
+        <!--CSV File Label-->
+        <TextBlock Text="CSV Input"  FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="70" Margin="36,0,0,0"/>
+
+        <!--TextBox to display CSV file-->
+        <TextBox Name="txtEditor" Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+
+        <!--Right side-->
+        <!--Button to generate XML output-->
+        <DockPanel Grid.Row="0" Grid.Column="1">
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="10,10,10,10"/>
+        </DockPanel>
+
+        <!--CSV File Label-->
+        <TextBlock Text="XML Output" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="136" TextAlignment="Center"/>
+
+        <!--TextBox to display CSV file-->
+        <TextBox Name="txtEditor2" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+        <Button x:Name="btnOpenFile" Click="btnOpenFile_Click" Content="Open file" Margin="0,8,33,8" HorizontalAlignment="Right" Width="60"/>
+        <Button x:Name="btnGenerateXML" Click="btnGenerateXML_Click" Content="Generate XML" Grid.Column="1" Margin="0,8,110,0" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Top"/>
+        <Button x:Name="btnSaveXML" Click="btnSaveXML_Click" Content="Save XML" Grid.Column="1" Margin="0,8,36,0" HorizontalAlignment="Right" Width="65" Height="25" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,23 @@
+﻿issystem,name,displayname,fieldrequirement,searchable,auditing,datatype,length,description
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,Captures the ICN of the Account (Business or Community)
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,Captures the ABN of the Account (Business or Community)
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,Test
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,4
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,5
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,6
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,7
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,8
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,9
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,10
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,11
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,12
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,13
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,14
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,15
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,16
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,17
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,18
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,19
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,20
+FALSE,ICN,ICN,Optional,TRUE,TRUE,SingleText,300,21
+TRUE,IBN,IBN Display,Required,FALSE,FALSE,MultipleLines,420,22
