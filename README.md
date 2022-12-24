@@ -1,5 +1,8 @@
 # CSV2XML
 
+## Trello Board
+Planned updates for CSV2XML can be found [here](https://trello.com/b/6E9Bk2Gq/csv2xml).
+
 ## Description
 CSV2XML is an application that can load CSV files, parse its content and generate a XML structure. The XML structure is based on a custom structure and may need to be customised for personal use depending on your requirements. 
 
