@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="xml\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="apple-touch-icon.png" />
     <Resource Include="favicon-16x16.png" />
   </ItemGroup>
