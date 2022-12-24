@@ -16,7 +16,7 @@ Here is the default XML structure for CSV2XML:
 #### Instructions for how to install and set up the project, including any dependencies that need to be installed.
 CSV2XML is ready to be compiled when cloned and comes with a precompiled .EXE file. For best practice, I recommend reviewing the code and compiling the project yourself. 
 
-MD5 hash of the pre-compiled .EXE file is: ``` TODO ```
+MD5 hash of the pre-compiled .EXE file is: ``` 4857d1a8ef1bff56a77b32b5797486d3 ```
 
 ## Usage: 
 #### A guide to using the project, including any command-line arguments or configuration options.
