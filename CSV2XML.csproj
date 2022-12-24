@@ -5,15 +5,25 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>logo\favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="favicon.ico" />
+    <None Remove="apple-touch-icon.png" />
+    <None Remove="favicon-16x16.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="logo\favicon.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="xml\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="apple-touch-icon.png" />
+    <Resource Include="favicon-16x16.png" />
   </ItemGroup>
 
 </Project>

@@ -1,18 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.Xml.Linq;
 
@@ -28,54 +16,67 @@ namespace CSV2XML
             InitializeComponent();
         }
 
-        public void btnOpenFile_Click(object sender, RoutedEventArgs e)
+        public void BtnOpenFile_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            // Open CSV file
+            OpenFileDialog openFileDialog = new();
             if (openFileDialog.ShowDialog() == true)
                 txtEditor.Text = File.ReadAllText(openFileDialog.FileName);
 
-            //Load CSV
-            var lines = File.ReadAllLines(openFileDialog.FileName);
+            // Read CSV file
+            string[] lines = File.ReadAllLines(openFileDialog.FileName);
 
-            //Construct array with comma delimiter
-            string[] headers = lines[0].Split(',').Select(x => x.Trim('\"')).ToArray();
+            // Get the attribute names from the first line of the CSV file
+            string[] attributeNames = lines[0].Split(',');
 
-            //Length of records
-            int lengthOfRecords = headers.Length - 1;
+            // !! MODIFY THE FOLLOWING SECTION TO CHANGE XML STRUCTURE !!
+            // Create the XML document
+            XDocument doc = new(
+                new XElement("root",
+                    // Loop through the CSV file lines
+                    lines.Skip(1).Select(line => {
+                        // Split the line into fields
+                        string[] fields = line.Split(',');
 
-            //Generate XML
-            var xml = new XElement("Root",
-               lines.Where((line, index) => index > 0).Select(line => new XElement("attribute",
-                  line.Split(',').Select((column, index) => new XElement(headers[index], column)),
-                  line.Split(',').Select((column, index) => new XAttribute(headers[index], column)))));
+                        // Create the XML element
+                        return new XElement("attribute",
+                            // Loop through the attribute names and fields
+                            attributeNames.Zip<string, string, object>(fields, (name, value) => {
+                                // Add custom logic here to verify if value are valid.
+                                // If the attribute name is "description", create an XElement
+                                if (name == "description")
+                                {
+                                    // Only return the XElement if the field value is not empty
+                                    return value != "" ? new XElement(name, value) : null;
+                                }
+                                // Otherwise, create an XAttribute
+                                else
+                                {
+                                    // Only return the XAttribute if the field value is not empty
+                                    return value != "" ? new XAttribute(name, value) : null;
+                                }
+                            })
+                        );
+                    })
+                )
+            );
+            // !! END OF SECTION TO MODIFY. DO NOT GO BELOW !!
 
-            //txtEditor2.Text = (string)xml;
-            xml.Save(@".\xml01.xml");
+            // Print to XML canvas
+            txtEditor2.Text = doc.ToString();
         }
 
-        private void btnGenerateXML_Click(object sender, RoutedEventArgs e)
+        // Logic for 'Copy XML' button
+        private void BtnCopyXML_Click(object sender, RoutedEventArgs e)
         {
-            //Load XML file
-            XDocument xdoc = XDocument.Load(@".\xml01.xml");
-
-            //Remove description attribute
-            xdoc.Descendants().Attributes("description").Remove();
-
-            //Remove all elements except for description
-            xdoc.Root.Elements("attribute").Elements().Where(e => e.Name != "description").Remove();
-
-            xdoc.Save(@".\xml02.xml");
-
-            //Open generated second XML document
-            const string directory = @".\xml02.xml";
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = directory;
-            txtEditor2.Text = File.ReadAllText(openFileDialog.InitialDirectory);
+            string text = txtEditor2.Text;
+            System.Windows.Clipboard.SetText( text );
         }
 
-        private void btnSaveXML_Click(object sender, RoutedEventArgs e)
+        // Logic for 'Save XML' button
+        private void BtnSaveXML_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            SaveFileDialog saveFileDialog = new();
             if (saveFileDialog.ShowDialog() == true)
                 File.WriteAllText(saveFileDialog.FileName, txtEditor2.Text);
         }

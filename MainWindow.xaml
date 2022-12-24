@@ -3,11 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
         xmlns:local="clr-namespace:CSV2XML"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid ShowGridLines="True">
 
+    <Grid ShowGridLines="False">
         <!--Define columns and rows-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -15,35 +16,64 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="42"></RowDefinition>
+            <RowDefinition Height="42"></RowDefinition>
             <RowDefinition Height="349*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <!--Left side-->
-        <!--Button to load CSV file-->
-        <DockPanel Grid.Row="0" Grid.Column="0">
+        <!--CSV (Left Side)-->
+        <!--CSV Input Section-->
+        <DockPanel Grid.Row="1" Grid.Column="0">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF3E0FA4" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="10,10,10,10" />
         </DockPanel>
+        <!--CSV Input Label-->
+        <TextBlock Text="CSV Input"  FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="70" Margin="25,0,0,0" Grid.Row="1" Foreground="White"/>
+        <!--CSV Input Textbox-->
+        <TextBox Name="txtEditor" Grid.Row="2" Grid.Column="0" Grid.RowSpan="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
 
-        <!--CSV File Label-->
-        <TextBlock Text="CSV Input"  FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="70" Margin="36,0,0,0"/>
-
-        <!--TextBox to display CSV file-->
-        <TextBox Name="txtEditor" Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
-
-        <!--Right side-->
-        <!--Button to generate XML output-->
-        <DockPanel Grid.Row="0" Grid.Column="1">
+        <!--XML (Right Side)-->
+        <!--XML Output Section-->
+        <DockPanel Grid.Row="1" Grid.Column="1">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF3E0FA4" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="10,10,10,10"/>
         </DockPanel>
+        <!--XML Output Label-->
+        <TextBlock Text="XML Output" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="136" TextAlignment="Center" Grid.Row="1" Margin="5,0,0,0" Foreground="White"/>
+        <!--XML Output Textbox-->
+        <TextBox Name="txtEditor2" Grid.Row="2" Grid.Column="1" Grid.RowSpan="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+        
+        <!--Buttons-->
+        <Button x:Name="BtnOpenFile" Click="BtnOpenFile_Click" Content="Open file" Margin="10,8,0,8" HorizontalAlignment="Left" Width="65"/>
+        <Button x:Name="BtnGenerateXML" Click="BtnCopyXML_Click" Content="Copy XML" Margin="85,0,0,0" HorizontalAlignment="Left" Width="65" Height="26" VerticalAlignment="Center"/>
+        <Button x:Name="BtnSaveXML" Click="BtnSaveXML_Click" Content="Save XML" Height="26" VerticalAlignment="Center" Margin="160,0,0,0" HorizontalAlignment="Left" Width="66"/>
 
-        <!--CSV File Label-->
-        <TextBlock Text="XML Output" Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="136" TextAlignment="Center"/>
 
-        <!--TextBox to display CSV file-->
-        <TextBox Name="txtEditor2" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
-        <Button x:Name="btnOpenFile" Click="btnOpenFile_Click" Content="Open file" Margin="0,8,33,8" HorizontalAlignment="Right" Width="60"/>
-        <Button x:Name="btnGenerateXML" Click="btnGenerateXML_Click" Content="Generate XML" Grid.Column="1" Margin="0,8,110,0" HorizontalAlignment="Right" Width="90" Height="25" VerticalAlignment="Top"/>
-        <Button x:Name="btnSaveXML" Click="btnSaveXML_Click" Content="Save XML" Grid.Column="1" Margin="0,8,36,0" HorizontalAlignment="Right" Width="65" Height="25" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

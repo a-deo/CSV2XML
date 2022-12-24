@@ -1,0 +1,4 @@
+﻿boolean,fieldName,displayName,mandatory,boolean2,boolean3,data,length,description
+FALSE,First Name,First name,Optional,TRUE,TRUE,Single,300,Lorem ipsum
+TRUE,Last Name,Last name,Required,FALSE,FALSE,Multiple,420,Lorem ipsum
+FALSE,Phone Number,Phone No.,Optional,TRUE,TRUE,Single,300,Lorem ipsum
