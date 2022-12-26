@@ -1,9 +1,18 @@
 # CSV2XML
 
+<p align="center">
+    <img src="https://github.com/a-deo/CSV2XML/blob/master/logo/apple-touch-icon.png?raw=true">
+</p>
+
 ## Trello Board
 Planned updates for CSV2XML can be found [here](https://trello.com/b/6E9Bk2Gq/csv2xml).
 
 ## Description
+
+<p align="center">
+    <img src="https://github.com/a-deo/CSV2XML/blob/master/img/header.png?raw=true">
+</p>
+
 CSV2XML is an application that can load CSV files, parse its content and generate a XML structure. The XML structure is based on a custom structure and may need to be customised for personal use depending on your requirements. 
 
 Here is the default XML structure for CSV2XML:
